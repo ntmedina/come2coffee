@@ -10,7 +10,7 @@ class Cache
 
   def get(request)
     response_body = @redis.get url_id(request.base_url)
-    if response_body
+    if response_body && JSON.parse(response_body)["error"].nil?
       Typhoeus::Response.new(return_code: :ok, code: 200, body: response_body)
     else
       nil
