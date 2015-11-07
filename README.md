@@ -1,5 +1,20 @@
 == README
 
+# Starting the project with docker
+## To start docker machine
+1. `docker-machine create -d virtualbox dev`
+2. `docker-machine start dev~
+3. `eval $(docker-machine env dev)`
+
+## To build the image and create the databases and tables
+1. `docker-compose build`
+2. `docker-compose run --rm web db:create`
+3. `docker-compose run --rm web db:migrate`
+
+## To run the project and open in browser <3
+1. `docker-compose up`
+2. `open "http://$(docker-machine ip dev):3000"`
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
