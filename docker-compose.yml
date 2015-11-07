@@ -1,0 +1,15 @@
+web:
+  build: .
+  command: sh -c 'rails s --bind 0.0.0.0'
+  links:
+    - postgres:postgres.local
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/app
+  environment:
+    - REDISTOGO_URL=redis://postgres.local:6379
+
+postgres:
+  image: postgres:9.3.9
+  command: "/docker-entrypoint.sh postgres"

@@ -11,8 +11,18 @@ RUN mkdir /app
 WORKDIR /app
 
 # update and upgrade packages
-RUN apt-get update && apt-get upgrade -y && apt-get clean
-RUN apt-get install -y curl git libmysqlclient-dev
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+ 	curl \
+	git \
+	postgresql-9.3 \
+	postgresql-9.3-dbg \
+	postgresql-client-9.3 \
+	postgresql-contrib-9.3 \
+	postgresql-client-common \
+	postgresql-server-dev-9.3 \
+	libpq5 \
+	libpq-dev \
+  nodejs
 
 # install rvm
 RUN command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
@@ -28,5 +38,3 @@ ADD . /app
 
 # install app requirements
 RUN bundle install
-
-RUN apt-get install -y nodejs
