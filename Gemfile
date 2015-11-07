@@ -14,7 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 # Database
-gem 'mysql2'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
