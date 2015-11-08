@@ -1,0 +1,1 @@
+window.Come2Coffee = {};

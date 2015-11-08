@@ -1,9 +1,10 @@
 default: &default
+  host: <%= ENV["POSTGRESQL_HOST"] || "localhost" %>
   adapter: postgresql
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: come2coffee
+  username: postgres
 
 development:
   <<: *default
